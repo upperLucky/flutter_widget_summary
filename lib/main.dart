@@ -7,9 +7,10 @@ import 'package:flutter_widget_summary/basic_component/widget_material_button.da
 import 'package:flutter_widget_summary/basic_component/widget_placeholder.dart';
 import 'package:flutter_widget_summary/basic_component/widget_row.dart';
 import 'package:flutter_widget_summary/basic_component/widget_container.dart';
+import 'package:flutter_widget_summary/basic_component/widget_scaffold.dart';
 import 'package:flutter_widget_summary/basic_component/widget_text.dart';
 
-void main() => runApp(WidgetPlaceHolder());
+void main() => runApp(WidgetScaffold());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
