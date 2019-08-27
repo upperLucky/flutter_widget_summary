@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage>
         通过TabBar我们只能生成一个静态的菜单，真正的Tab页还没有实现。由于Tab菜单和Tab页的切换需要同步，我们需要通过TabController去监听Tab菜单的切换去切换Tab页
      */
     _tabController.addListener(() {
-     /* switch (_tabController.index) {
+      /* switch (_tabController.index) {
         case 1:
           _tabController.index = 1;
           break;
@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage>
         child: Icon(Icons.add),
       ),
       body: TabBarView(
-        /*
+          /*
           如果我们Tab页可以滑动切换的话，还需要在滑动过程中更新TabBar指示器的偏移！
           显然，要手动处理这些是很麻烦的，为此，Material库提供了一个TabBarView组件，通过它不仅可以轻松的实现Tab页，而且可以非常容易的配合TabBar来实现同步切换和滑动状态同步
          */
@@ -173,8 +173,8 @@ class MyDrawer extends Drawer {
                 child: Row(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.0),
                       // 代表left和right的值都为horizontal 16.0
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
                       child: ClipOval(
                         child: Image.network(
                           'http://www.devio.org/img/avatar.png',
@@ -190,7 +190,8 @@ class MyDrawer extends Drawer {
                 ),
               ),
               Expanded(
-                  child: ListView( //
+                  child: ListView(
+                //
                 children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.add),
