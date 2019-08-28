@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_summary/basic/other/gesture_page.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_column.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_container.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_flutter_logo.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         'placeholder': (BuildContext context) => WidgetPlaceHolder(),
         'flutterlogo': (BuildContext context) => WidgetFlutterLogo(),
         'scaffold': (BuildContext context) => WidgetScaffold(),
+        'gesture': (BuildContext context) => GesturePage(),
       },
     );
   }
@@ -72,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _itemClick('Placeholder', WidgetPlaceHolder(), 'placeholder'),
             _itemClick('Flutterlogo', WidgetFlutterLogo(), 'flutterlogo'),
             _itemClick('Scaffold', WidgetScaffold(), 'scaffold'),
+            _itemClick('Gesture', GesturePage(), 'geusture'),
           ],
         ));
   }
