@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_summary/basic_component/widget_column.dart';
-import 'package:flutter_widget_summary/basic_component/widget_flutter_logo.dart';
-import 'package:flutter_widget_summary/basic_component/widget_icon.dart';
-import 'package:flutter_widget_summary/basic_component/widget_image.dart';
-import 'package:flutter_widget_summary/basic_component/widget_material_button.dart';
-import 'package:flutter_widget_summary/basic_component/widget_placeholder.dart';
-import 'package:flutter_widget_summary/basic_component/widget_row.dart';
-import 'package:flutter_widget_summary/basic_component/widget_container.dart';
-import 'package:flutter_widget_summary/basic_component/widget_scaffold.dart';
-import 'package:flutter_widget_summary/basic_component/widget_text.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_column.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_container.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_flutter_logo.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_icon.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_image.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_material_button.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_placeholder.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_row.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_scaffold.dart';
+import 'package:flutter_widget_summary/basic/widget/widget_text.dart';
 
 void main() => runApp(MyApp());
 
