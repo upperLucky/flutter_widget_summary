@@ -135,7 +135,10 @@ class _MyHomePageState extends State<MyHomePage>
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => WidgetButton()));
+
+        },
         child: Icon(Icons.add),
       ),
       body: TabBarView(
