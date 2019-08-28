@@ -10,7 +10,7 @@ import 'package:flutter_widget_summary/basic_component/widget_container.dart';
 import 'package:flutter_widget_summary/basic_component/widget_scaffold.dart';
 import 'package:flutter_widget_summary/basic_component/widget_text.dart';
 
-void main() => runApp(WidgetScaffold());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -19,42 +19,77 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
+      routes: <String, WidgetBuilder>{
+        'container': (BuildContext context) => WidgetContainer(),
+        'row': (BuildContext context) => WidgetRow(),
+        'column': (BuildContext context) => WidgetColumn(),
+        'image': (BuildContext context) => WidgetImage(),
+        'text': (BuildContext context) => WidgetText(),
+        'icon': (BuildContext context) => WidgetIcon(),
+        'button': (BuildContext context) => WidgetButton(),
+        'placeholder': (BuildContext context) => WidgetPlaceHolder(),
+        'flutterlogo': (BuildContext context) => WidgetFlutterLogo(),
+        'scaffold': (BuildContext context) => WidgetScaffold(),
+      },
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool byName = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+        appBar: AppBar(
+          title: Text('Summary'),
+        ),
+        body: ListView(
+          children: <Widget>[
+            SwitchListTile(
+                value: byName,
+                title: Text('${byName ? "" : '不'}通过路由名跳转'),
+                onChanged: (value) {
+                  setState(() {
+                    byName = value;
+                  });
+                }),
+            _itemClick('Container', WidgetContainer(), 'container'),
+            _itemClick('Row', WidgetRow(), 'row'),
+            _itemClick('Column', WidgetColumn(), 'column'),
+            _itemClick('Image', WidgetImage(), 'image'),
+            _itemClick('Text', WidgetText(), 'text'),
+            _itemClick('Icon', WidgetIcon(), 'icon'),
+            _itemClick('Button', WidgetButton(), 'button'),
+            _itemClick('Placeholder', WidgetPlaceHolder(), 'placeholder'),
+            _itemClick('Flutterlogo', WidgetFlutterLogo(), 'flutterlogo'),
+            _itemClick('Scaffold', WidgetScaffold(), 'scaffold'),
+          ],
+        ));
+  }
+
+  /// 路由的两种方式
+  _itemClick(String title, page, String routeName) {
+    return Container(
+      child: RaisedButton(
+        onPressed: () {
+          if (byName) {
+            Navigator.pushNamed(context, routeName);
+          } else {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => page));
+          }
+        },
+        child: Text(title),
       ),
-      body: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          ),
     );
   }
 }
