@@ -8,6 +8,7 @@ class GesturePage extends StatefulWidget {
 
 class _GesturePageState extends State<GesturePage> {
   String printString = '';
+  double moveX = 0, moveY = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +40,27 @@ class _GesturePageState extends State<GesturePage> {
                     child: Container(
                       padding: EdgeInsets.all(60),
                       decoration: BoxDecoration(color: Colors.amberAccent),
-                      child: Text(
-                        '点我',
-                        style: TextStyle(fontSize: 36, color: Colors.white)
-                      ),
+                      child: Text('点我',
+                          style: TextStyle(fontSize: 36, color: Colors.white)),
                     ),
                   ),
                   Text(printString)
                 ],
+              ),
+              // 跟着手指滑动的小球
+              Positioned(
+                left: moveX,
+                top: moveY,
+                child: GestureDetector(
+                  onPanUpdate: (e) => _doMove(e),
+                  child: Container(
+                    width: 72,
+                    height: 72,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(36)),
+                  ),
+                ),
               )
             ],
           ),
@@ -58,6 +72,13 @@ class _GesturePageState extends State<GesturePage> {
   _printMsg(String msg) {
     setState(() {
       printString += ' ,$msg';
+    });
+  }
+
+  _doMove(DragUpdateDetails e) {
+    setState(() {
+      moveX < 0 ? moveX = 0 : moveX += e.delta.dx;
+      moveY < 0 ? moveY = 0 : moveY += e.delta.dy;
     });
   }
 }

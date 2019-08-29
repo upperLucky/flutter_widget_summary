@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_summary/basic_component/widget_row.dart';
-import 'package:flutter_widget_summary/basic_component/widget_container.dart';
 
 ///在垂直方向上排列子widget的列表。
 

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_summary/basic_component/widget_column.dart';
-import 'package:flutter_widget_summary/basic_component/widget_row.dart';
-import 'package:flutter_widget_summary/basic_component/widget_container.dart';
 
 /// 一个显示图片的widget
 /// Flutter框架对加载过的图片是有缓存的（内存），默认最大缓存数量是1000，最大缓存空间为100M
