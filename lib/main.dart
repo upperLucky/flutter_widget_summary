@@ -11,6 +11,8 @@ import 'package:flutter_widget_summary/basic/widget/widget_row.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_scaffold.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_text.dart';
 
+import 'basic/other/res_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -35,6 +37,7 @@ class MyApp extends StatelessWidget {
         'flutterlogo': (BuildContext context) => WidgetFlutterLogo(),
         'scaffold': (BuildContext context) => WidgetScaffold(),
         'gesture': (BuildContext context) => GesturePage(),
+        'res': (BuildContext context) => ResPage(),
       },
     );
   }
@@ -75,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _itemClick('Flutterlogo', WidgetFlutterLogo(), 'flutterlogo'),
             _itemClick('Scaffold', WidgetScaffold(), 'scaffold'),
             _itemClick('Gesture', GesturePage(), 'geusture'),
+            _itemClick('Res', ResPage(), 'res'),
           ],
         ));
   }
