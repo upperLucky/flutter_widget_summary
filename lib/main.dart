@@ -11,6 +11,7 @@ import 'package:flutter_widget_summary/basic/widget/widget_row.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_scaffold.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_text.dart';
 
+import 'basic/other/flutter_widget_lifecycle.dart';
 import 'basic/other/launch_page.dart';
 import 'basic/other/res_page.dart';
 
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         'gesture': (BuildContext context) => GesturePage(),
         'res': (BuildContext context) => ResPage(),
         'launch': (BuildContext context) => LaunchPage(),
+        'lifecycle': (BuildContext context) => WidgetLifeCycle(),
       },
     );
   }
@@ -81,7 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _itemClick('Scaffold', WidgetScaffold(), 'scaffold'),
             _itemClick('Gesture', GesturePage(), 'geusture'),
             _itemClick('Res', ResPage(), 'res'),
-            _itemClick('launch', LaunchPage(), 'res'),
+            _itemClick('Launch', LaunchPage(), 'res'),
+            _itemClick('LifeCycle', WidgetLifeCycle(), 'lifecycle'),
           ],
         ));
   }
