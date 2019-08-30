@@ -15,18 +15,66 @@ import 'basic/other/flutter_widget_lifecycle.dart';
 import 'basic/other/launch_page.dart';
 import 'basic/other/res_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(DynamicTheme());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class DynamicTheme extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<DynamicTheme> {
+  bool byName = false;
+  Brightness _brightness = Brightness.light;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        brightness: _brightness,
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text('Summary'),
+          ),
+          body: ListView(
+            children: <Widget>[
+              RaisedButton(
+                  onPressed: () {
+                    setState(() {
+                      if (_brightness == Brightness.dark) {
+                        _brightness = Brightness.light;
+                      } else {
+                        _brightness = Brightness.dark;
+                      }
+                    });
+                  },
+                  child: Text('切换主题')),
+              SwitchListTile(
+                  value: byName,
+                  title: Text('${byName ? "" : '不'}通过路由名跳转'),
+                  onChanged: (value) {
+                    setState(() {
+                      byName = value;
+                    });
+                  }),
+              _itemClick('Container', WidgetContainer(), 'container'),
+              _itemClick('Row', WidgetRow(), 'row'),
+              _itemClick('Column', WidgetColumn(), 'column'),
+              _itemClick('Image', WidgetImage(), 'image'),
+              _itemClick('Text', WidgetText(), 'text'),
+              _itemClick('Icon', WidgetIcon(), 'icon'),
+              _itemClick('Button', WidgetButton(), 'button'),
+              _itemClick('Placeholder', WidgetPlaceHolder(), 'placeholder'),
+              _itemClick('Flutterlogo', WidgetFlutterLogo(), 'flutterlogo'),
+              _itemClick('Scaffold', WidgetScaffold(), 'scaffold'),
+              _itemClick('Gesture', GesturePage(), 'geusture'),
+              _itemClick('Res', ResPage(), 'res'),
+              _itemClick('Launch', LaunchPage(), 'res'),
+              _itemClick('LifeCycle', WidgetLifeCycle(), 'lifecycle'),
+            ],
+          )),
       routes: <String, WidgetBuilder>{
         'container': (BuildContext context) => WidgetContainer(),
         'row': (BuildContext context) => WidgetRow(),
@@ -44,49 +92,6 @@ class MyApp extends StatelessWidget {
         'lifecycle': (BuildContext context) => WidgetLifeCycle(),
       },
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  bool byName = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Summary'),
-        ),
-        body: ListView(
-          children: <Widget>[
-            SwitchListTile(
-                value: byName,
-                title: Text('${byName ? "" : '不'}通过路由名跳转'),
-                onChanged: (value) {
-                  setState(() {
-                    byName = value;
-                  });
-                }),
-            _itemClick('Container', WidgetContainer(), 'container'),
-            _itemClick('Row', WidgetRow(), 'row'),
-            _itemClick('Column', WidgetColumn(), 'column'),
-            _itemClick('Image', WidgetImage(), 'image'),
-            _itemClick('Text', WidgetText(), 'text'),
-            _itemClick('Icon', WidgetIcon(), 'icon'),
-            _itemClick('Button', WidgetButton(), 'button'),
-            _itemClick('Placeholder', WidgetPlaceHolder(), 'placeholder'),
-            _itemClick('Flutterlogo', WidgetFlutterLogo(), 'flutterlogo'),
-            _itemClick('Scaffold', WidgetScaffold(), 'scaffold'),
-            _itemClick('Gesture', GesturePage(), 'geusture'),
-            _itemClick('Res', ResPage(), 'res'),
-            _itemClick('Launch', LaunchPage(), 'res'),
-            _itemClick('LifeCycle', WidgetLifeCycle(), 'lifecycle'),
-          ],
-        ));
   }
 
   /// 路由的两种方式
