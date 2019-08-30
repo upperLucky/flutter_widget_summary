@@ -31,6 +31,7 @@ class _MyHomePageState extends State<DynamicTheme> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+//        fontFamily: 'Chilanka',  // 全局改字体
         brightness: _brightness,
         primarySwatch: Colors.blue,
       ),
@@ -50,7 +51,10 @@ class _MyHomePageState extends State<DynamicTheme> {
                       }
                     });
                   },
-                  child: Text('切换主题')),
+                  child: Text(
+                    'Change Theme',
+                    style: TextStyle(fontFamily: 'Chilanka'),
+                  )),
               SwitchListTile(
                   value: byName,
                   title: Text('${byName ? "" : '不'}通过路由名跳转'),

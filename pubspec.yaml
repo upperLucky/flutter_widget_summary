@@ -42,12 +42,12 @@ flutter:
   uses-material-design: true
     #fonts:
     # - family : myIcon
-    #  fonts:
+  #  fonts:
   #     -assert:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - images/view.png
+    - images/view.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -75,3 +75,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: Chilanka
+      fonts:
+        - asset: fonts/Chilanka-Regular.ttf
