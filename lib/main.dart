@@ -13,6 +13,7 @@ import 'package:flutter_widget_summary/basic/widget/widget_text.dart';
 
 import 'basic/other/flutter_widget_lifecycle.dart';
 import 'basic/other/launch_page.dart';
+import 'basic/other/photo_app_page.dart';
 import 'basic/other/res_page.dart';
 
 void main() => runApp(DynamicTheme());
@@ -23,7 +24,6 @@ class DynamicTheme extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<DynamicTheme> {
-  bool byName = false;
   Brightness _brightness = Brightness.light;
 
   @override
@@ -39,7 +39,7 @@ class _MyHomePageState extends State<DynamicTheme> {
           appBar: AppBar(
             title: Text('Summary'),
           ),
-          body: ListView(
+          body: Column(
             children: <Widget>[
               RaisedButton(
                   onPressed: () {
@@ -55,28 +55,7 @@ class _MyHomePageState extends State<DynamicTheme> {
                     'Change Theme',
                     style: TextStyle(fontFamily: 'Chilanka'),
                   )),
-              SwitchListTile(
-                  value: byName,
-                  title: Text('${byName ? "" : '不'}通过路由名跳转'),
-                  onChanged: (value) {
-                    setState(() {
-                      byName = value;
-                    });
-                  }),
-              _itemClick('Container', WidgetContainer(), 'container'),
-              _itemClick('Row', WidgetRow(), 'row'),
-              _itemClick('Column', WidgetColumn(), 'column'),
-              _itemClick('Image', WidgetImage(), 'image'),
-              _itemClick('Text', WidgetText(), 'text'),
-              _itemClick('Icon', WidgetIcon(), 'icon'),
-              _itemClick('Button', WidgetButton(), 'button'),
-              _itemClick('Placeholder', WidgetPlaceHolder(), 'placeholder'),
-              _itemClick('Flutterlogo', WidgetFlutterLogo(), 'flutterlogo'),
-              _itemClick('Scaffold', WidgetScaffold(), 'scaffold'),
-              _itemClick('Gesture', GesturePage(), 'geusture'),
-              _itemClick('Res', ResPage(), 'res'),
-              _itemClick('Launch', LaunchPage(), 'res'),
-              _itemClick('LifeCycle', WidgetLifeCycle(), 'lifecycle'),
+              Expanded(child: RouteNavigator())
             ],
           )),
       routes: <String, WidgetBuilder>{
@@ -94,7 +73,48 @@ class _MyHomePageState extends State<DynamicTheme> {
         'res': (BuildContext context) => ResPage(),
         'launch': (BuildContext context) => LaunchPage(),
         'lifecycle': (BuildContext context) => WidgetLifeCycle(),
+        'photoApp': (BuildContext context) => PhotoAPP(),
       },
+    );
+  }
+}
+
+class RouteNavigator extends StatefulWidget {
+  @override
+  _RouteNavigatorState createState() => _RouteNavigatorState();
+}
+
+class _RouteNavigatorState extends State<RouteNavigator> {
+  bool byName = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        SwitchListTile(
+            value: byName,
+            title: Text('${byName ? "" : '不'}通过路由名跳转'),
+            onChanged: (value) {
+              setState(() {
+                byName = value;
+              });
+            }),
+        _itemClick('Container', WidgetContainer(), 'container'),
+        _itemClick('Row', WidgetRow(), 'row'),
+        _itemClick('Column', WidgetColumn(), 'column'),
+        _itemClick('Image', WidgetImage(), 'image'),
+        _itemClick('Text', WidgetText(), 'text'),
+        _itemClick('Icon', WidgetIcon(), 'icon'),
+        _itemClick('Button', WidgetButton(), 'button'),
+        _itemClick('Placeholder', WidgetPlaceHolder(), 'placeholder'),
+        _itemClick('Flutterlogo', WidgetFlutterLogo(), 'flutterlogo'),
+        _itemClick('Scaffold', WidgetScaffold(), 'scaffold'),
+        _itemClick('Gesture', GesturePage(), 'geusture'),
+        _itemClick('Res', ResPage(), 'res'),
+        _itemClick('Launch', LaunchPage(), 'res'),
+        _itemClick('LifeCycle', WidgetLifeCycle(), 'lifecycle'),
+        _itemClick('PhotoApp', PhotoAPP(), 'photoApp'),
+      ],
     );
   }
 
