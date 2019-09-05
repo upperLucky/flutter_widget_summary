@@ -32,6 +32,12 @@ class _LogoAnimationState extends State<LogoAnimation>
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
