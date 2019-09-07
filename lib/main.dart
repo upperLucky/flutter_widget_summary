@@ -11,6 +11,7 @@ import 'package:flutter_widget_summary/basic/widget/widget_row.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_scaffold.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_text.dart';
 
+import 'basic/animation/AnimatedBuilderPage.dart';
 import 'basic/animation/AnimatedWidgetPage.dart';
 import 'basic/animation/TweenAnimation.dart';
 import 'basic/other/flutter_widget_lifecycle.dart';
@@ -78,6 +79,7 @@ class _MyHomePageState extends State<DynamicTheme> {
         'photoApp': (BuildContext context) => PhotoAPP(),
         'logoAnimation': (BuildContext context) => LogoAnimation(),
         'animatedWidget': (BuildContext context) => AnimatedLogoPage(),
+        'animatedBuilder': (BuildContext context) => AnimatedBuilderPage(),
       },
     );
   }
@@ -120,6 +122,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _itemClick('PhotoApp', PhotoAPP(), 'photoApp'),
         _itemClick('LogoAnimation', LogoAnimation(), 'logoAnimation'),
         _itemClick('AnimatedWidget', AnimatedLogoPage(), 'animatedWidget'),
+        _itemClick('AnimatedBuilder', AnimatedBuilderPage(), 'animatedBuilder'),
       ],
     );
   }
