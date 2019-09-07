@@ -13,6 +13,7 @@ import 'package:flutter_widget_summary/basic/widget/widget_text.dart';
 
 import 'basic/animation/AnimatedBuilderPage.dart';
 import 'basic/animation/AnimatedWidgetPage.dart';
+import 'basic/animation/HeroPage.dart';
 import 'basic/animation/TweenAnimation.dart';
 import 'basic/other/flutter_widget_lifecycle.dart';
 import 'basic/other/launch_page.dart';
@@ -80,6 +81,7 @@ class _MyHomePageState extends State<DynamicTheme> {
         'logoAnimation': (BuildContext context) => LogoAnimation(),
         'animatedWidget': (BuildContext context) => AnimatedLogoPage(),
         'animatedBuilder': (BuildContext context) => AnimatedBuilderPage(),
+        'hero': (BuildContext context) => HeroAnimation(),
       },
     );
   }
@@ -123,6 +125,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _itemClick('LogoAnimation', LogoAnimation(), 'logoAnimation'),
         _itemClick('AnimatedWidget', AnimatedLogoPage(), 'animatedWidget'),
         _itemClick('AnimatedBuilder', AnimatedBuilderPage(), 'animatedBuilder'),
+        _itemClick('Hero', HeroAnimation(), 'hero'),
       ],
     );
   }
