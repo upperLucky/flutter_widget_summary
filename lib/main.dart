@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_summary/basic/other/futurebuilder_page.dart';
 import 'package:flutter_widget_summary/basic/other/gesture_page.dart';
 import 'package:flutter_widget_summary/basic/other/http_page.dart';
 import 'package:flutter_widget_summary/basic/widget/widget_column.dart';
@@ -84,6 +85,7 @@ class _MyHomePageState extends State<DynamicTheme> {
         'animatedBuilder': (BuildContext context) => AnimatedBuilderPage(),
         'hero': (BuildContext context) => HeroAnimation(),
         'http': (BuildContext context) => HttpDemo(),
+        'futureBuilder': (BuildContext context) => PageDemo(),
       },
     );
   }
@@ -129,6 +131,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _itemClick('AnimatedBuilder', AnimatedBuilderPage(), 'animatedBuilder'),
         _itemClick('Hero', HeroAnimation(), 'hero'),
         _itemClick('Http', HttpDemo(), 'http'),
+        _itemClick('FutureBuilder', PageDemo(), 'futureBuilder'),
       ],
     );
   }
